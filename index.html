@@ -98,7 +98,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -313,18 +313,20 @@
       
         
           
-            <h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><p>MacOS Mojava(此条件非必须)</p>
-<p>#二、<a href="https://ngrok.com/" target="_blank" rel="noopener">ngrok</a><br>下载地址：<a href="https://ngrok.com/download" target="_blank" rel="noopener">https://ngrok.com/download</a><br><img src="/2019/03/21/MAC下使用免费实现内网穿透/001.png" alt></p>
-<p>#三、使用<br>1、下载之后直接解压得到 一个 ngrok 文件</p>
-<p>2、直接终端运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ chmod a+x ngrok</span><br></pre></td></tr></table></figure></p>
-<p>即可修改权限。</p>
-<p>3、开启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ./ngrok http localhost:8080</span><br></pre></td></tr></table></figure></p>
-<p>4、结果如下：<br><img src="/2019/03/21/MAC下使用免费实现内网穿透/002.png" alt></p>
-<p>5、http、https服务器即可通过手机4G网络访问：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://8dfccac4.ngrok.io</span><br><span class="line">https://8dfccac4.ngrok.io</span><br></pre></td></tr></table></figure></p>
-<p>#四、问题<br>需要主要的是！！！！➜ 必须开启web服务</p>
-<p>若没开启出现如下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">**Failed to complete tunnel connection**</span><br><span class="line"></span><br><span class="line">The connection to [**https://8dfccac4.ngrok.io**](https://8dfccac4.ngrok.io/) was successfully tunneled to your ngrok client, but the client failed to establish a connection to the local address [**localhost:8080**](http://localhost:8080/).</span><br><span class="line"></span><br><span class="line">Make sure that a web service is running on [**localhost:8080**](http://localhost:8080/) and that it is a valid address.</span><br><span class="line"></span><br><span class="line">The error encountered was: **dial tcp** [**::1**]**:8080: getsockopt: connection refused**</span><br></pre></td></tr></table></figure></p>
-
-          
+          一、环境MacOS Mojava(此条件非必须)
+二、ngrok下载地址：https://ngrok.com/download
+三、使用1、下载之后直接解压得到 一个 ngrok 文件
+2、直接终端运行1➜ chmod a+x ngrok
+即可修改权限。
+3、开启服务1➜ ./ngrok http 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/21/MAC下使用免费实现内网穿透/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -442,45 +444,16 @@
       
         
           
-            <p>作为一个优秀的程序员，必须要要有一个属于自己的blog。<br>市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。</p>
-<h3 id="一、Node、npm、git环境安装"><a href="#一、Node、npm、git环境安装" class="headerlink" title="一、Node、npm、git环境安装"></a>一、Node、npm、git环境安装</h3><p>因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ node -v</span><br><span class="line">v10.8.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ npm -v</span><br><span class="line">6.2.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git --version</span><br><span class="line">git version 2.17.2 (Apple Git-113)</span><br></pre></td></tr></table></figure>
-<h3 id="二、Hexo配置"><a href="#二、Hexo配置" class="headerlink" title="二、Hexo配置"></a>二、Hexo配置</h3><p>关于Hexo：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a></p>
-<p>安装部署命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>安装完成后如何新建Blog？</p>
-<h5 id="1、新建文件夹MyGithubBlog，即项目名，用于放资源"><a href="#1、新建文件夹MyGithubBlog，即项目名，用于放资源" class="headerlink" title="1、新建文件夹MyGithubBlog，即项目名，用于放资源"></a>1、新建文件夹<code>MyGithubBlog</code>，即项目名，用于放资源</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyProject git:(master) ✗ mkdir MyGithubBlog</span><br></pre></td></tr></table></figure>
-<h5 id="2、进入文件夹中，并进行初始化工作"><a href="#2、进入文件夹中，并进行初始化工作" class="headerlink" title="2、进入文件夹中，并进行初始化工作"></a>2、进入文件夹中，并进行初始化工作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  MyProject git:(master) ✗ cd MyGithubBlog </span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo init</span><br></pre></td></tr></table></figure>
-<p>进度如下：<br><img src="/2019/03/21/Mac上搭建Hexo的Github个人博客/001.jpg" alt></p>
-<h5 id="3、基础插件配置"><a href="#3、基础插件配置" class="headerlink" title="3、基础插件配置"></a>3、基础插件配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">✗ hexo install</span><br></pre></td></tr></table></figure>
-<h5 id="4、开始本地服务"><a href="#4、开始本地服务" class="headerlink" title="4、开始本地服务"></a>4、开始本地服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g      </span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded in 134 ms</span><br><span class="line">INFO  Generated: index.html</span><br><span class="line">INFO  Generated: archives/index.html</span><br><span class="line">INFO  Generated: 2019/03/21/hello-world/index.html</span><br><span class="line">INFO  Generated: archives/2019/index.html</span><br><span class="line">INFO  Generated: archives/2019/03/index.html</span><br><span class="line">INFO  5 files generated in 195 ms</span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<h5 id="5、访问http-localhost-4000，可以出现如下页面"><a href="#5、访问http-localhost-4000，可以出现如下页面" class="headerlink" title="5、访问http://localhost:4000，可以出现如下页面"></a>5、访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，可以出现如下页面</h5><p><img src="/2019/03/21/Mac上搭建Hexo的Github个人博客/002.jpg" alt></p>
-<h3 id="三、使用github-pages"><a href="#三、使用github-pages" class="headerlink" title="三、使用github pages"></a>三、使用github pages</h3><p>github pages是给开发者建立一个私人页面，免费且没有空间流量限制。每个github账号都可以创建一个github pages项目。</p>
-<h5 id="1、创建github-pages项目"><a href="#1、创建github-pages项目" class="headerlink" title="1、创建github pages项目"></a>1、创建github pages项目</h5><p>在github上新建一个项目，项目的名称必须是（你的用户名.github.io)才行</p>
-<p><img src="/2019/03/21/Mac上搭建Hexo的Github个人博客/003.jpg" alt></p>
-<h5 id="2、配置git信息-方便hexo和github通过ssh通信"><a href="#2、配置git信息-方便hexo和github通过ssh通信" class="headerlink" title="2、配置git信息(方便hexo和github通过ssh通信)"></a>2、配置git信息(方便hexo和github通过ssh通信)</h5><p>如何配置，公司使用过gitlab或常用Coding的童鞋应该知道，不再废话，属于基本操作。</p>
-<h3 id="四、配置Deployment"><a href="#四、配置Deployment" class="headerlink" title="四、配置Deployment"></a>四、配置Deployment</h3><p>在MyGithubBlog项目根目录下里找到_config.yml文件，找到Deployment，然后按照如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repo: git@github.com:1019459067/1019459067.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="五、安装-hexo-deployer-git自动部署发布工具"><a href="#五、安装-hexo-deployer-git自动部署发布工具" class="headerlink" title="五、安装 hexo-deployer-git自动部署发布工具"></a>五、安装 hexo-deployer-git自动部署发布工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure>
-<h3 id="六、生成静态文件部署到github"><a href="#六、生成静态文件部署到github" class="headerlink" title="六、生成静态文件部署到github"></a>六、生成静态文件部署到github</h3><p>通过命令hexo clean &amp;&amp; hexo g &amp;&amp; hexo d，发布到github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo clean</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo d</span><br></pre></td></tr></table></figure>
-<p>通过链接就可以进行访问：<a href="https://1019459067.github.io/" target="_blank" rel="noopener">https://1019459067.github.io</a></p>
-<h3 id="七、更改模板，发布博客"><a href="#七、更改模板，发布博客" class="headerlink" title="七、更改模板，发布博客"></a>七、更改模板，发布博客</h3><p><a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">next主题</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">hexo写作教程</a></p>
-<h3 id="八、Hexo中添加本地图片"><a href="#八、Hexo中添加本地图片" class="headerlink" title="八、Hexo中添加本地图片"></a>八、Hexo中添加本地图片</h3><p>1、把主页配置文件<code>_config.yml</code>里的<code>post_asset_folder:</code>这个选项设置为<code>true</code></p>
-<p>2、在你的hexo目录下执行这样一句话<code>npm install hexo-asset-image --save</code>，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p>
-<p>3、等待一小段时间后，再运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了xxxx.md文件还有一个同名的文件夹</p>
-<p>4、最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
-<p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p>
-<p>5、最后检查一下，<code>hexo g</code>生成页面后，进入<code>public\2019\03\21\index.html</code>文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</p>
-
-          
+          作为一个优秀的程序员，必须要要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。
+一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/21/Mac上搭建Hexo的Github个人博客/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -611,15 +584,9 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
