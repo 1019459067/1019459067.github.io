@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="作为一个iOS开发者,不仅仅是能够写出优美的代码.最终的我们的目的是能我们的项目上线,就显示十分完美了. 由于每次上线或多或少的都会有细节无法注意到.现在就以公司某个项目上线为基础.详细描述关于iOS上线的流程. 一般分为三个部分:BundleID申请、发布证书申请、提交审核. 一、BundleID申请公司一般都是多人开或方便测试,在开发阶段使用企业版账号进行项目开发.在开发完成后需要进行app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 开发之上线AppStore流程">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/index.html">
+<meta property="og:site_name" content="Dear、Monkey">
+<meta property="og:description" content="作为一个iOS开发者,不仅仅是能够写出优美的代码.最终的我们的目的是能我们的项目上线,就显示十分完美了. 由于每次上线或多或少的都会有细节无法注意到.现在就以公司某个项目上线为基础.详细描述关于iOS上线的流程. 一般分为三个部分:BundleID申请、发布证书申请、提交审核. 一、BundleID申请公司一般都是多人开或方便测试,在开发阶段使用企业版账号进行项目开发.在开发完成后需要进行app">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-01.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-02.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-03.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-04.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-05.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-01.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-02.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-03.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-04.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-05.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-0601.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-0602.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-07.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-08.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/2-09.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-0101.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-0102.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-02.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-03.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-04.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-05.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-06.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-07.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-08.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-09.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-10.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-11.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-12.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-13.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-14.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-15.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-16.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-17.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/3-18.png">
+<meta property="og:updated_time" content="2019-03-22T03:32:13.546Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 开发之上线AppStore流程">
+<meta name="twitter:description" content="作为一个iOS开发者,不仅仅是能够写出优美的代码.最终的我们的目的是能我们的项目上线,就显示十分完美了. 由于每次上线或多或少的都会有细节无法注意到.现在就以公司某个项目上线为基础.详细描述关于iOS上线的流程. 一般分为三个部分:BundleID申请、发布证书申请、提交审核. 一、BundleID申请公司一般都是多人开或方便测试,在开发阶段使用企业版账号进行项目开发.在开发完成后需要进行app">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/1-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/">
+
+
+
+
+
+  <title>iOS 开发之上线AppStore流程 | Dear、Monkey</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?60c97a4ba525002fef00e6468f38b589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dear、Monkey</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力争取，下一个就是你</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/iOS开发之上线AppStore流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evans.Xiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dear、Monkey">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 开发之上线AppStore流程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-07T10:59:16+08:00">
+                2018-06-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为一个iOS开发者,不仅仅是能够写出优美的代码.最终的我们的目的是能我们的项目上线,就显示十分完美了.</p>
+<p>由于每次上线或多或少的都会有细节无法注意到.现在就以公司某个项目上线为基础.详细描述关于iOS上线的流程.</p>
+<p>一般分为三个部分:BundleID申请、发布证书申请、提交审核.</p>
+<h3 id="一、BundleID申请"><a href="#一、BundleID申请" class="headerlink" title="一、BundleID申请"></a>一、BundleID申请</h3><p>公司一般都是多人开或方便测试,在开发阶段使用企业版账号进行项目开发.在开发完成后需要进行app store 上架,这里可以通过更新项目的buildID来实现. 通过测试可知,用两种方式可实现更新:</p>
+<ul>
+<li>直接更换成新的bundleID;</li>
+<li>将企业版账号下的bundleID进行删除,然后在个人开发者账号再次创建.</li>
+</ul>
+<h5 id="创建步骤如下"><a href="#创建步骤如下" class="headerlink" title="创建步骤如下:"></a>创建步骤如下:</h5><p>1、登陆<a href="https://developer.apple.com/account,进入如下界面" target="_blank" rel="noopener">https://developer.apple.com/account,进入如下界面</a><br>    <img src="/2018/06/07/iOS开发之上线AppStore流程/1-01.png" alt="img"></p>
+<p>2、点击证书描述文件管理,进入如下界面<br>    <img src="/2018/06/07/iOS开发之上线AppStore流程/1-02.png" alt="img"></p>
+<p>3、接下点击上图中的“+”即可进行bundleID的创建,这里以<code>com.xxxxxx.testApp</code>为例<br>    <img src="/2018/06/07/iOS开发之上线AppStore流程/1-03.png" alt="img"></p>
+<p>4、点击<code>continue</code>,跳转下一界面,如下:<br>    <img src="/2018/06/07/iOS开发之上线AppStore流程/1-04.png" alt="img"></p>
+<p>5、点击上图<code>Register</code>按钮,跳转下一界面,如下:<br>    <img src="/2018/06/07/iOS开发之上线AppStore流程/1-05.png" alt="img"></p>
+<p>6、点击上图<code>Done</code>按钮,表示已经完成新的bundleID创建.</p>
+<h3 id="二、发布证书申请"><a href="#二、发布证书申请" class="headerlink" title="二、发布证书申请"></a>二、发布证书申请</h3><p>在申请发布证书之前,我们需要进行<code>CertificateSigningRequest</code>创建,因为后续在进行发布证书申请时需要.</p>
+<p>1、在Mac上搜索<code>钥匙串访问</code>即可,然后按下图所示,进行创建.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-01.png" alt="img"></p>
+<p>2、出现如下界面时,需要将信息填写完整.需要注意的是,前面三个选项可以任意填写,但是最后一个选项<code>请求是</code>必须选择<code>存储到磁盘</code>.点击<code>继续</code>后,可将证书存储到桌面,此时桌面可看见<code>CertificateSigningRequest.certSigningRequest</code>的文件.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-02.png" alt="img"></p>
+<p>3、回到苹果个人开发者网站上,点击<code>Provisioning Profiles</code>下<code>Distribution</code>,结果如下:<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-03.png" alt="img"></p>
+<p>4、点击上图<code>+</code>按钮,出现如下界面,需要进行发布证书类型的选择,这里直接选择<code>App Store</code>,意味着我们需要申请的是AppStore发布证书,然后点击<code>Continue</code><br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-04.png" alt="img"></p>
+<p>5、接下来需要进行bundleID的绑定,此处应与第一部分中的第三小步中创建的bunldeid保持一致.(此处因示例原因,未保持一致)<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-05.png" alt="img"></p>
+<p>6、点击上图中<code>Continue</code>后,出现如下界面,进行签名证书的选择<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-0601.png" alt="img"></p>
+<p>需要注意的是:<br>此步骤可能出现另外一种情况,可能不存在选项,需要创建签名证书,此时这需要用到第1、2步中说创建的<code>CertificateSigningRequest</code>证书了.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-0602.png" alt="img"></p>
+<p>7、接下来,添加证书生成后的文件名称.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-07.png" alt="img"></p>
+<p>8、点击继续后即可进入下一个界面,点击<code>Download</code>,完成证书下载.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-08.png" alt="img"></p>
+<p>9、最后进入下载文件夹,找到刚刚生成的发布证书,并双击,将证书加入<code>钥匙串访问</code>中.<br><img src="/2018/06/07/iOS开发之上线AppStore流程/2-09.png" alt="img"></p>
+<h3 id="三、提交审核"><a href="#三、提交审核" class="headerlink" title="三、提交审核"></a>三、提交审核</h3><p>终于来到了最后的提交审核阶段阶段.其中为了更完整的完整的描述此部分的操作详情,将操作分为三个阶段:</p>
+<ul>
+<li>在App Store Contect上先创建应用,必将应用信息填写完整;</li>
+<li>完成工程项目的打包任务,并选择上传至AppStore平台;</li>
+<li>将上传的iPa包与创建的应用进行绑定,并提交审核.</li>
+</ul>
+<h5 id="1、在App-Store-Connect上先创建应用-必将应用信息填写完整"><a href="#1、在App-Store-Connect上先创建应用-必将应用信息填写完整" class="headerlink" title="1、在App Store Connect上先创建应用,必将应用信息填写完整"></a>1、在App Store Connect上先创建应用,必将应用信息填写完整</h5><p>(1)开始创建应用<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-0101.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-0102.png" alt="img"></p>
+<p>(2)填写应用名称,选择目标bundleID<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-02.png" alt="img"></p>
+<p>(3)填写应用信息<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-03.png" alt="img"></p>
+<p>(4)更新app价格与销售范围<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-04.png" alt="img"></p>
+<p>(5)在准备提交选项内继续完善信息填写<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-05.png" alt="img"></p>
+<h5 id="2、完成工程项目的打包任务-并选择上传至AppStore平台"><a href="#2、完成工程项目的打包任务-并选择上传至AppStore平台" class="headerlink" title="2、完成工程项目的打包任务,并选择上传至AppStore平台"></a>2、完成工程项目的打包任务,并选择上传至AppStore平台</h5><p>(1)打开Xcode,然后选择账号,开始进行Arachive,操作步骤如下<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-06.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-07.png" alt="img"></p>
+<p>(2)接下来,进行上传ipa的操作,如下所示<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-08.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-09.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-10.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-11.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-12.png" alt="img"></p>
+<hr>
+<p>需要注意的是:</p>
+<p>一般在进行这一步时,苹果会进行ipa的初步检测,包括权限控制、icon、luanch图片使用的合法性!</p>
+<hr>
+<p>当上传没有问题后,最后会出现如下结果!<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-13.png" alt="img"></p>
+<p>至此为止,完成iPa上传流程!!!</p>
+<h5 id="3、将上传的iPa包与创建的应用进行绑定-并提交审核"><a href="#3、将上传的iPa包与创建的应用进行绑定-并提交审核" class="headerlink" title="3、将上传的iPa包与创建的应用进行绑定,并提交审核"></a>3、将上传的iPa包与创建的应用进行绑定,并提交审核</h5><p>(1)打开App Store Contect,在<code>准备提交</code>选项中,找到<code>构建版本</code>,选择刚刚上传的版本记录<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-14.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-15.png" alt="img"></p>
+<p>(2)点击<code>存储</code>,然后完成接下来的提交流程<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-16.png" alt="img"><br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-17.png" alt="img"><br>点击上图中<code>提交</code>按钮,完成提交流程</p>
+<p>(3)完成提交流程后,会自动跳转如下界面,至此已完成整个iOS上架打包流程<br><img src="/2018/06/07/iOS开发之上线AppStore流程/3-18.png" alt="img"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/21/Mac上搭建Hexo的Github个人博客/" rel="next" title="Mac上搭建Hexo的Github个人博客">
+                <i class="fa fa-chevron-left"></i> Mac上搭建Hexo的Github个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/16/iOS-FFmpeg学习资料总结/" rel="prev" title="iOS FFmpeg学习资料总结">
+                iOS FFmpeg学习资料总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Evans.Xiao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、BundleID申请"><span class="nav-number">1.</span> <span class="nav-text">一、BundleID申请</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建步骤如下"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建步骤如下:</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、发布证书申请"><span class="nav-number">2.</span> <span class="nav-text">二、发布证书申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、提交审核"><span class="nav-number">3.</span> <span class="nav-text">三、提交审核</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、在App-Store-Connect上先创建应用-必将应用信息填写完整"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、在App Store Connect上先创建应用,必将应用信息填写完整</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、完成工程项目的打包任务-并选择上传至AppStore平台"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、完成工程项目的打包任务,并选择上传至AppStore平台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、将上传的iPa包与创建的应用进行绑定-并提交审核"><span class="nav-number">3.0.3.</span> <span class="nav-text">3、将上传的iPa包与创建的应用进行绑定,并提交审核</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weihua Xiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
