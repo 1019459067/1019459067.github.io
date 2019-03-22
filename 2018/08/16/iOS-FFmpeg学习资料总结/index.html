@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、安装目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步） 推荐一个非常好用的编译FFmpeg脚本. 在终端cd到刚才下载的脚本，执行./build-ffmpeg.sh,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。 等待大概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS FFmpeg学习资料总结">
+<meta property="og:url" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/index.html">
+<meta property="og:site_name" content="Dear、Monkey">
+<meta property="og:description" content="一、安装目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步） 推荐一个非常好用的编译FFmpeg脚本. 在终端cd到刚才下载的脚本，执行./build-ffmpeg.sh,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。 等待大概">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/001.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/002.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/003.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/004.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/005.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/006.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/007.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/008.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/009.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/010.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/011.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/012.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/013.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/014.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/015.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/016.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/017.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/018.png">
+<meta property="og:updated_time" content="2019-03-22T01:31:13.463Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS FFmpeg学习资料总结">
+<meta name="twitter:description" content="一、安装目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步） 推荐一个非常好用的编译FFmpeg脚本. 在终端cd到刚才下载的脚本，执行./build-ffmpeg.sh,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。 等待大概">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/001.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/">
+
+
+
+
+
+  <title>iOS FFmpeg学习资料总结 | Dear、Monkey</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?60c97a4ba525002fef00e6468f38b589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dear、Monkey</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">努力争取，下一个就是你</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evans.Xiao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dear、Monkey">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS FFmpeg学习资料总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-16T09:23:26+08:00">
+                2018-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p>目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步）</p>
+<p>推荐一个非常好用的编译<a href="https://github.com/kewlbear/FFmpeg-iOS-build-script" target="_blank" rel="noopener">FFmpeg脚本</a>.</p>
+<p>在终端cd到刚才下载的脚本，执行<code>./build-ffmpeg.sh</code>,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。</p>
+<p>等待大概十几分钟。。。输出结果如下：</p>
+<p>验证编译结果如下：</p>
+<p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/001.png" alt></p>
+<p>在终端cd到FFmpeg-iOS里面的lib文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lipo -info libavfilter.a</span><br><span class="line">Architectures in the fat file: libavfilter.a are: armv7 i386 x86_64 arm64</span><br></pre></td></tr></table></figure>
+<p>说明：<br><code>armv7</code> <code>arm64</code> <code>i386</code> <code>x86_64</code>这些是什么，其实这些是处理器的指令集。</p>
+<ul>
+<li><code>armv7</code>、<code>arm64</code>是ARM处理器的指令集，真机所支持的架构。目前iOS主要支持<code>arm64</code>.</li>
+<li><code>i386</code> 、<code>x86_64</code>是Mac系统处理器指令集，模拟器32位、64所支持的架构。</li>
+</ul>
+<h2 id="二、验证安装"><a href="#二、验证安装" class="headerlink" title="二、验证安装"></a>二、验证安装</h2><p>###1、环境</p>
+<p>Xcode：Version 9.4.1</p>
+<p>MacOS High Sierra：Version 10.13.6</p>
+<p>###2、配置<br>新建Xcode工程命名FFmpegDemo，上面编译好的FFmpeg-iOS添加到工程里面。</p>
+<p>a、设置头文件路径，<code>Header Search Paths</code>-&gt;<code>$(SRCROOT)/FFmpeg-iOS/include</code><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/002.png" alt><br>b、设置库文件路径，<code>Library Search Paths</code>-&gt;<code>$(PROJECT_DIR)/FFmpeg-iOS/lib</code><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/003.png" alt><br>c、配置缺失的库，主要包括<code>CoreMedia.framework</code>、<code>AudioToolbox.framework</code>、<code>VideoToolbox.framework</code>、<code>libiconv.tbd</code>、<code>libbz2.tbd、libz.tbd</code>。<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/004.png" alt><br>完成后结果分别如下：</p>
+<p>###3、验证</p>
+<p>在<code>ViewController.m</code>中输入如下代码进行验证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#include &lt;libavcodec/avcodec.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    </span><br><span class="line">    printf(&quot;%s&quot;,avcodec_configuration());</span><br><span class="line">    UILabel *lab = [UILabel new];</span><br><span class="line">    lab.text = [NSString stringWithUTF8String:avcodec_configuration()];</span><br><span class="line">    lab.numberOfLines = 0;</span><br><span class="line">    lab.frame = self.view.bounds;</span><br><span class="line">    [self.view addSubview:lab];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动运行程序，结果如下，说明配置成功。</p>
+<p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/005.png" alt></p>
+<h2 id="三、视频播放器原理"><a href="#三、视频播放器原理" class="headerlink" title="三、视频播放器原理"></a>三、视频播放器原理</h2><p>这里主要参考<a href="https://www.jianshu.com/p/e4ab6fcc7742" target="_blank" rel="noopener">视频播放器原理及相关基础知识介绍</a>。</p>
+<p>播放一个视频文件的流程如下：<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/006.png" alt></p>
+<h4 id="1、封装格式的作用："><a href="#1、封装格式的作用：" class="headerlink" title="1、封装格式的作用："></a>1、封装格式的作用：</h4><p>视频码流和音频码流按照一定的格式存储在一个文件中。</p>
+<p>MPEG2-TS和FLV格式简介：<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/007.png" alt></p>
+<h4 id="2、封装格式："><a href="#2、封装格式：" class="headerlink" title="2、封装格式："></a>2、封装格式：</h4><p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/008.png" alt></p>
+<h4 id="3、H264格式简介以及压缩方法"><a href="#3、H264格式简介以及压缩方法" class="headerlink" title="3、H264格式简介以及压缩方法"></a>3、H264格式简介以及压缩方法</h4><ul>
+<li>I:红色的帧，当作图片直接压缩。特点：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输;</span><br><span class="line">2.解码时仅用I帧的数据就可重构完整图像;</span><br><span class="line">3.I帧描述了图像背景和运动主体的详情;</span><br><span class="line">4.I帧不需要参考其他画面而生成;</span><br><span class="line">5.I帧是P帧和B帧的参考帧(其质量直接影响到同组中以后各帧的质量);</span><br><span class="line">6.I帧是帧组GOP的基础帧(第一帧),在一组中只有一个I帧;</span><br><span class="line">7.I帧不需要考虑运动矢量;</span><br><span class="line">8.I帧所占数据的信息量比较大。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>P:蓝色的帧。以I帧为参考帧。前向预测编码帧。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.P帧是I帧后面相隔1~2帧的编码帧;</span><br><span class="line">2.P帧采用运动补偿的方法传送它与前面的I或P帧的差值及运动矢量(预测误差);</span><br><span class="line">3.解码时必须将I帧中的预测值与预测误差求和后才能重构完整的P帧图像;</span><br><span class="line">4.P帧属于前向预测的帧间编码。它只参考前面最靠近它的I帧或P帧;</span><br><span class="line">5.P帧可以是其后面P帧的参考帧,也可以是其前后的B帧的参考帧;</span><br><span class="line">6.由于P帧是参考帧,它可能造成解码错误的扩散;</span><br><span class="line">7.由于是差值传送,P帧的压缩比较高。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>B:绿色的帧.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.B帧是由前面的I或P帧和后面的P帧来进行预测的;</span><br><span class="line">2.B帧传送的是它与前面的I或P帧和后面的P帧之间的预测误差及运动矢量;</span><br><span class="line">3.B帧是双向预测编码帧;</span><br><span class="line">4.B帧压缩比最高,因为它只反映丙参考帧间运动主体的变化情况,预测比较准确;</span><br><span class="line">5.B帧不是参考帧,不会造成解码错误的扩散。</span><br></pre></td></tr></table></figure>
+<h2 id="四、音频编码数据"><a href="#四、音频编码数据" class="headerlink" title="四、音频编码数据"></a>四、音频编码数据</h2><h4 id="1、音频编码的作用。"><a href="#1、音频编码的作用。" class="headerlink" title="1、音频编码的作用。"></a>1、音频编码的作用。</h4><p>将音频采集数据压缩成为音频码流，从而降低音频的数据量。</p>
+<h4 id="2、音频格式"><a href="#2、音频格式" class="headerlink" title="2、音频格式"></a>2、音频格式</h4><p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/009.png" alt></p>
+<h4 id="3、ACC格式简介以及简介"><a href="#3、ACC格式简介以及简介" class="headerlink" title="3、ACC格式简介以及简介"></a>3、ACC格式简介以及简介</h4><p>数据由大小不固定的ADTS构成.压缩方法复杂，可以将音频数据压缩10倍以上.</p>
+<h2 id="五、视频像素数据"><a href="#五、视频像素数据" class="headerlink" title="五、视频像素数据"></a>五、视频像素数据</h2><p>1、视频像素数据作用</p>
+<p>保存了屏幕上每个像素点的像素值.</p>
+<p>2、格式</p>
+<p>RGB24、RGB32、YUV420P、YUV422P、YUV444P。常用的为YUV420P。</p>
+<p>3、特点</p>
+<p>体积很大。一般情况1小时高清视频的RGB24格式的数据体积为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3600*25*1920*1080*3=559GByte</span><br></pre></td></tr></table></figure>
+<p>PS:这里帧率为25Hz，取样精度8bit.</p>
+<p>4、RGB格式简介</p>
+<p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/010.png" alt></p>
+<p>5、YUV格式简介<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/011.png" alt></p>
+<h2 id="六、音频采样数据"><a href="#六、音频采样数据" class="headerlink" title="六、音频采样数据"></a>六、音频采样数据</h2><p>1、音频采样数据作用</p>
+<p>保存了音频中每个采样点的值。</p>
+<p>2、特点</p>
+<p>体积很大。一般情况一首4分钟的PCM格式的歌曲体积为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4*60*44100*2*2=42.3MByte</span><br></pre></td></tr></table></figure>
+<p>PS:假定采样率为44100Hz，采样精度为16bit.</p>
+<h2 id="七、视频解码知识"><a href="#七、视频解码知识" class="headerlink" title="七、视频解码知识"></a>七、视频解码知识</h2><p>1、纯净的视频解码流程</p>
+<ul>
+<li>压缩编码数据-&gt;像素数据</li>
+<li>例如解码H.264，就是“H.264-&gt;YUV”</li>
+</ul>
+<p>2、一般的视频解码流程</p>
+<ul>
+<li>视频码流一般存储在一定的封装格式中。封装格式中通常还包含音频码流等内容。</li>
+<li>对于封装格式中的视频，需要先从封装的格式中的提取视频码流，然后在进行解码。</li>
+<li>例如解码MKV格式的视频文件，就是“MKV-&gt;H.264码流-&gt;YUV”。</li>
+</ul>
+<h2 id="八、FFmpeg解码的函数"><a href="#八、FFmpeg解码的函数" class="headerlink" title="八、FFmpeg解码的函数"></a>八、FFmpeg解码的函数</h2><p>1、FFmpeg解码的流程图如下所示：<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/012.png" alt></p>
+<p>2、FFmpeg解码函数简介<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/013.png" alt></p>
+<p>3、FFmpeg解码的数据结构<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/014.png" alt></p>
+<p>4、FFmpeg数据结构分析<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/015.png" alt><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/016.png" alt><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/017.png" alt></p>
+<p>5、解码后的数据为什么要经过sws_scale()函数处理？<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/018.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/21/Mac上搭建Hexo的Github个人博客/" rel="next" title="Mac上搭建Hexo的Github个人博客">
+                <i class="fa fa-chevron-left"></i> Mac上搭建Hexo的Github个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/27/Mac下使用免费实现内网穿透/" rel="prev" title="Mac下使用免费实现内网穿透">
+                Mac下使用免费实现内网穿透 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Evans.Xiao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-number">1.</span> <span class="nav-text">一、安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、验证安装"><span class="nav-number">2.</span> <span class="nav-text">二、验证安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、视频播放器原理"><span class="nav-number">3.</span> <span class="nav-text">三、视频播放器原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、封装格式的作用："><span class="nav-number">3.0.1.</span> <span class="nav-text">1、封装格式的作用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、封装格式："><span class="nav-number">3.0.2.</span> <span class="nav-text">2、封装格式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、H264格式简介以及压缩方法"><span class="nav-number">3.0.3.</span> <span class="nav-text">3、H264格式简介以及压缩方法</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#四、音频编码数据"><span class="nav-number">4.</span> <span class="nav-text">四、音频编码数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、音频编码的作用。"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、音频编码的作用。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、音频格式"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、音频格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、ACC格式简介以及简介"><span class="nav-number">4.0.3.</span> <span class="nav-text">3、ACC格式简介以及简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、视频像素数据"><span class="nav-number">5.</span> <span class="nav-text">五、视频像素数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、音频采样数据"><span class="nav-number">6.</span> <span class="nav-text">六、音频采样数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、视频解码知识"><span class="nav-number">7.</span> <span class="nav-text">七、视频解码知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、FFmpeg解码的函数"><span class="nav-number">8.</span> <span class="nav-text">八、FFmpeg解码的函数</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weihua Xiao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
