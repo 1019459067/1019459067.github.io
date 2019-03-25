@@ -96,28 +96,34 @@
 
 
 
-  <meta name="description" content="作为一个NB的程序员，必须要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。 一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作： 12➜  ~ node -vv10.8.0 12➜  ~ npm -">
+  <meta name="description" content="这里我将从最初的开始进行介绍，包括Github上创建项目已经上传项目，到最后的支持Cocoapods。这里主要以Objecte-C为例介绍。 一、上传代码至GitHub至于如何创建GitHub账号，请自行百度。 1、首先我们打开github.com，然后创建自己的项目工程这里注意那个MIT License，在后面添加Cocoapods支持的时候会用到（稍后介绍）。 2、点击创建仓库，然后将仓库cl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac上搭建Hexo的Github个人博客">
-<meta property="og:url" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/index.html">
+<meta property="og:title" content="上传Github的代码添加Cocoapods支持">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/index.html">
 <meta property="og:site_name" content="Weihua&#39;s Blog">
-<meta property="og:description" content="作为一个NB的程序员，必须要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。 一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作： 12➜  ~ node -vv10.8.0 12➜  ~ npm -">
+<meta property="og:description" content="这里我将从最初的开始进行介绍，包括Github上创建项目已经上传项目，到最后的支持Cocoapods。这里主要以Objecte-C为例介绍。 一、上传代码至GitHub至于如何创建GitHub账号，请自行百度。 1、首先我们打开github.com，然后创建自己的项目工程这里注意那个MIT License，在后面添加Cocoapods支持的时候会用到（稍后介绍）。 2、点击创建仓库，然后将仓库cl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/001.jpg">
-<meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/002.jpg">
-<meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/003.jpg">
-<meta property="og:updated_time" content="2019-03-25T14:13:04.203Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/001.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/002.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/003.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/004.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/005.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/006.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/007.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/008.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/009.jpg">
+<meta property="og:updated_time" content="2019-03-25T13:55:44.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac上搭建Hexo的Github个人博客">
-<meta name="twitter:description" content="作为一个NB的程序员，必须要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。 一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作： 12➜  ~ node -vv10.8.0 12➜  ~ npm -">
-<meta name="twitter:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/001.jpg">
+<meta name="twitter:title" content="上传Github的代码添加Cocoapods支持">
+<meta name="twitter:description" content="这里我将从最初的开始进行介绍，包括Github上创建项目已经上传项目，到最后的支持Cocoapods。这里主要以Objecte-C为例介绍。 一、上传代码至GitHub至于如何创建GitHub账号，请自行百度。 1、首先我们打开github.com，然后创建自己的项目工程这里注意那个MIT License，在后面添加Cocoapods支持的时候会用到（稍后介绍）。 2、点击创建仓库，然后将仓库cl">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/001.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/">
 
 
 
@@ -127,7 +133,7 @@
   };
 </script>
 
-  <title>Mac上搭建Hexo的Github个人博客 | Weihua's Blog</title>
+  <title>上传Github的代码添加Cocoapods支持 | Weihua's Blog</title>
   
 
 
@@ -335,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/上传Github的代码添加Cocoapods支持/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evans.Xiao">
@@ -352,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac上搭建Hexo的Github个人博客
+          <h1 class="post-title" itemprop="name headline">上传Github的代码添加Cocoapods支持
 
               
             
@@ -378,7 +384,7 @@
                 
               
 
-              <time title="创建时间：2016-03-21 20:26:53" itemprop="dateCreated datePublished" datetime="2016-03-21T20:26:53+08:00">2016-03-21</time>
+              <time title="创建时间：2019-03-24 21:18:54" itemprop="dateCreated datePublished" datetime="2019-03-24T21:18:54+08:00">2019-03-24</time>
             
 
             
@@ -395,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-25 22:13:04" itemprop="dateModified" datetime="2019-03-25T22:13:04+08:00">2019-03-25</time>
+                <time title="修改时间：2019-03-25 21:55:44" itemprop="dateModified" datetime="2019-03-25T21:55:44+08:00">2019-03-25</time>
               
             
           </span>
@@ -429,50 +435,43 @@
       
 
       
-        <p>作为一个NB的程序员，必须要有一个属于自己的blog。<br>市面上大多数人常有的blog网站有<a href="https://bbs.csdn.net/forums/ios" target="_blank" rel="noopener"><code>CSDN</code></a>、<a href="https://juejin.im/welcome/ios" target="_blank" rel="noopener"><code>掘金</code></a>、<a href="https://juejin.im/welcome/ios" target="_blank" rel="noopener"><code>我是开发者</code></a>、<a href="https://www.oschina.net/ios/codingList" target="_blank" rel="noopener"><code>oschina</code></a>、<a href="http://www.cocoachina.com/" target="_blank" rel="noopener"><code>cocoachina</code></a>、<a href="https://www.jianshu.com/" target="_blank" rel="noopener"><code>简书</code></a>。</p>
-<h3 id="一、Node、npm、git环境安装"><a href="#一、Node、npm、git环境安装" class="headerlink" title="一、Node、npm、git环境安装"></a>一、Node、npm、git环境安装</h3><p>因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ node -v</span><br><span class="line">v10.8.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ npm -v</span><br><span class="line">6.2.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git --version</span><br><span class="line">git version 2.17.2 (Apple Git-113)</span><br></pre></td></tr></table></figure>
-<h3 id="二、Hexo配置"><a href="#二、Hexo配置" class="headerlink" title="二、Hexo配置"></a>二、Hexo配置</h3><p>关于Hexo：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a></p>
-<p>安装部署命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>安装完成后如何新建Blog？</p>
-<h5 id="1、新建文件夹MyGithubBlog，即项目名，用于放资源"><a href="#1、新建文件夹MyGithubBlog，即项目名，用于放资源" class="headerlink" title="1、新建文件夹MyGithubBlog，即项目名，用于放资源"></a>1、新建文件夹<code>MyGithubBlog</code>，即项目名，用于放资源</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyProject git:(master) ✗ mkdir MyGithubBlog</span><br></pre></td></tr></table></figure>
-<h5 id="2、进入文件夹中，并进行初始化工作"><a href="#2、进入文件夹中，并进行初始化工作" class="headerlink" title="2、进入文件夹中，并进行初始化工作"></a>2、进入文件夹中，并进行初始化工作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  MyProject git:(master) ✗ cd MyGithubBlog </span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo init</span><br></pre></td></tr></table></figure>
-<p>进度如下：<br><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/001.jpg" alt></p>
-<h5 id="3、基础插件配置"><a href="#3、基础插件配置" class="headerlink" title="3、基础插件配置"></a>3、基础插件配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">✗ hexo install</span><br></pre></td></tr></table></figure>
-<h5 id="4、开始本地服务"><a href="#4、开始本地服务" class="headerlink" title="4、开始本地服务"></a>4、开始本地服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g      </span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded in 134 ms</span><br><span class="line">INFO  Generated: index.html</span><br><span class="line">INFO  Generated: archives/index.html</span><br><span class="line">INFO  Generated: 2019/03/21/hello-world/index.html</span><br><span class="line">INFO  Generated: archives/2019/index.html</span><br><span class="line">INFO  Generated: archives/2019/03/index.html</span><br><span class="line">INFO  5 files generated in 195 ms</span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<h5 id="5、访问http-localhost-4000，可以出现如下页面"><a href="#5、访问http-localhost-4000，可以出现如下页面" class="headerlink" title="5、访问http://localhost:4000，可以出现如下页面"></a>5、访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，可以出现如下页面</h5><p><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/002.jpg" alt></p>
-<h3 id="三、使用github-pages"><a href="#三、使用github-pages" class="headerlink" title="三、使用github pages"></a>三、使用github pages</h3><p>github pages是给开发者建立一个私人页面，免费且没有空间流量限制。每个github账号都可以创建一个github pages项目。</p>
-<h5 id="1、创建github-pages项目"><a href="#1、创建github-pages项目" class="headerlink" title="1、创建github pages项目"></a>1、创建github pages项目</h5><p>在github上新建一个项目，项目的名称必须是（你的用户名.github.io)才行</p>
-<p><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/003.jpg" alt></p>
-<h5 id="2、配置git信息-方便hexo和github通过ssh通信"><a href="#2、配置git信息-方便hexo和github通过ssh通信" class="headerlink" title="2、配置git信息(方便hexo和github通过ssh通信)"></a>2、配置git信息(方便hexo和github通过ssh通信)</h5><p>如何配置，公司使用过gitlab或常用Coding的童鞋应该知道，不再废话，属于基本操作。</p>
-<h3 id="四、配置Deployment"><a href="#四、配置Deployment" class="headerlink" title="四、配置Deployment"></a>四、配置Deployment</h3><p>在MyGithubBlog项目根目录下里找到_config.yml文件，找到Deployment，然后按照如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repo: git@github.com:1019459067/1019459067.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="五、安装-hexo-deployer-git自动部署发布工具"><a href="#五、安装-hexo-deployer-git自动部署发布工具" class="headerlink" title="五、安装 hexo-deployer-git自动部署发布工具"></a>五、安装 hexo-deployer-git自动部署发布工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure>
-<h3 id="六、生成静态文件部署到github"><a href="#六、生成静态文件部署到github" class="headerlink" title="六、生成静态文件部署到github"></a>六、生成静态文件部署到github</h3><p>通过命令hexo clean &amp;&amp; hexo g &amp;&amp; hexo d，发布到github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo clean</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo d</span><br></pre></td></tr></table></figure>
-<p>通过链接就可以进行访问：<a href="https://1019459067.github.io/" target="_blank" rel="noopener">https://1019459067.github.io</a></p>
-<h3 id="七、更改模板，发布博客"><a href="#七、更改模板，发布博客" class="headerlink" title="七、更改模板，发布博客"></a>七、更改模板，发布博客</h3><p><a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">next主题</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">hexo写作教程</a></p>
-<h3 id="八、Hexo中添加本地图片"><a href="#八、Hexo中添加本地图片" class="headerlink" title="八、Hexo中添加本地图片"></a>八、Hexo中添加本地图片</h3><p>1、把主页配置文件<code>_config.yml</code>里的<code>post_asset_folder:</code>这个选项设置为<code>true</code></p>
-<p>2、在你的hexo目录下执行这样一句话<code>npm install hexo-asset-image --save</code>，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p>
-<p>3、等待一小段时间后，再运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了xxxx.md文件还有一个同名的文件夹</p>
-<p>4、最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
-<p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p>
-<p>5、最后检查一下，<code>hexo g</code>生成页面后，进入<code>public\2019\03\21\index.html</code>文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</p>
-<h3 id="九、为hexo和next增加站内搜索功能"><a href="#九、为hexo和next增加站内搜索功能" class="headerlink" title="九、为hexo和next增加站内搜索功能"></a>九、为hexo和next增加站内搜索功能</h3><h5 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search</span><br><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
-<h5 id="2、修改hexo配置"><a href="#2、修改hexo配置" class="headerlink" title="2、修改hexo配置"></a>2、修改hexo配置</h5><p>在你的hexo目录下的_config.yml中增加如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-<p>配置上之后，其实搜索已经配置完成了，但现在我们还看不到搜索的入口，接下来我们需要在next的主体上进行配置</p>
-<h5 id="3、配置next中的搜索入口"><a href="#3、配置next中的搜索入口" class="headerlink" title="3、配置next中的搜索入口"></a>3、配置next中的搜索入口</h5><p>打开themes\next_config.yml，打开local search:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
-<h5 id="4、接下来就重新运行就可以看到效果。"><a href="#4、接下来就重新运行就可以看到效果。" class="headerlink" title="4、接下来就重新运行就可以看到效果。"></a>4、接下来就重新运行就可以看到效果。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+        <p>这里我将从最初的开始进行介绍，包括Github上创建项目已经上传项目，到最后的支持Cocoapods。这里主要以Objecte-C为例介绍。</p>
+<h3 id="一、上传代码至GitHub"><a href="#一、上传代码至GitHub" class="headerlink" title="一、上传代码至GitHub"></a>一、上传代码至GitHub</h3><p>至于如何创建GitHub账号，请自行百度。</p>
+<h5 id="1、首先我们打开github-com，然后创建自己的项目工程"><a href="#1、首先我们打开github-com，然后创建自己的项目工程" class="headerlink" title="1、首先我们打开github.com，然后创建自己的项目工程"></a>1、首先我们打开github.com，然后创建自己的项目工程</h5><p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/001.jpg" alt><br>这里注意那个MIT License，在后面添加Cocoapods支持的时候会用到（稍后介绍）。</p>
+<h5 id="2、点击创建仓库，然后将仓库clone到本地"><a href="#2、点击创建仓库，然后将仓库clone到本地" class="headerlink" title="2、点击创建仓库，然后将仓库clone到本地"></a>2、点击创建仓库，然后将仓库clone到本地</h5><p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/002.jpg" alt></p>
+<h5 id="3、将工程上传至仓库中"><a href="#3、将工程上传至仓库中" class="headerlink" title="3、将工程上传至仓库中"></a>3、将工程上传至仓库中</h5><p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/003.jpg" alt></p>
+<p>这里的LICENSE就是刚才说的MIT License添加的文件。CameraDemo是示例工程，WHCamera就是提供给他人使用的库。<br>然后提交到Github就可以了。</p>
+<h3 id="二、创建podspec文件"><a href="#二、创建podspec文件" class="headerlink" title="二、创建podspec文件"></a>二、创建podspec文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  CameraDemo git:(master) ✗ pod spec create WHCamera</span><br><span class="line"></span><br><span class="line">Specification created at WHCamera.podspec</span><br><span class="line">➜  CameraDemo git:(master) ✗ ls</span><br><span class="line">CameraDemo           LICENSE              WHCamera</span><br><span class="line">CameraDemo.xcodeproj README.md            WHCamera.podspec</span><br></pre></td></tr></table></figure>
+<p>此时在工程文件夹下也会多一个<code>WHCamera.podspec</code>文件。</p>
+<h3 id="三、编辑podspec文件"><a href="#三、编辑podspec文件" class="headerlink" title="三、编辑podspec文件"></a>三、编辑podspec文件</h3><p>这里用Sublime Text打开并做了如下编辑。<a href="https://guides.cocoapods.org/syntax/podspec.html#specification" target="_blank" rel="noopener">关于podspec文件详解</a></p>
+<p>这里我做的编辑更新如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Pod::Spec.new do |s|</span><br><span class="line">  s.name         = &quot;WHCamera&quot;</span><br><span class="line">  s.version      = &quot;0.0.1&quot;</span><br><span class="line">  s.summary      = &quot;A Library for iOS to use for Camera.&quot;</span><br><span class="line">  s.description  = &lt;&lt;-DESC</span><br><span class="line">                    &quot;基于Object-C的iOS纯原生API相机，高度集成，使用快捷简单。可快速集成使用。最低支持iOS7的系统。&quot;</span><br><span class="line">                   DESC</span><br><span class="line">  s.platform     = :ios, &quot;7.0&quot;</span><br><span class="line">  s.homepage     = &quot;https://github.com/1019459067/CameraDemo&quot;</span><br><span class="line">  s.license      = &quot;MIT&quot;</span><br><span class="line">  s.author       = &#123; &quot;xiaoweihua&quot; =&gt; &quot;1019459067@qq.com&quot; &#125;</span><br><span class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/1019459067/CameraDemo.git&quot;, :tag =&gt; &quot;#&#123;s.version&#125;&quot; &#125;</span><br><span class="line">  s.source_files  = &quot;WHCamera/*.&#123;h,m&#125;&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="四、验证podspec文件"><a href="#四、验证podspec文件" class="headerlink" title="四、验证podspec文件"></a>四、验证podspec文件</h3><p>接下来执行下面的命令进行验证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  CameraDemo git:(master) ✗ pod lib lint WHCamera.podspec</span><br></pre></td></tr></table></figure>
+<p>成功的结果如下：</p>
+<p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/004.jpg" alt></p>
+<p>若失败则根据提示做对应修改，一开始我没有选定平台<code>s.platform = :ios, &quot;7.0&quot;</code>，所以一直报错。</p>
+<h3 id="五、在Github上创建release版本"><a href="#五、在Github上创建release版本" class="headerlink" title="五、在Github上创建release版本"></a>五、在Github上创建release版本</h3><p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/005.jpg" alt><br><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/006.jpg" alt><br><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/007.jpg" alt></p>
+<h3 id="六、注册CocoaPods账号"><a href="#六、注册CocoaPods账号" class="headerlink" title="六、注册CocoaPods账号"></a>六、注册CocoaPods账号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  CameraDemo git:(master) pod trunk register xxxxxx@qq.com &apos;用户名&apos;</span><br><span class="line">[!] Please verify the session by clicking the link in the verification email that has been sent to xxxxxx@qq.com</span><br></pre></td></tr></table></figure>
+<p>打开邮件中的链接, 这样就成功注册了Cocoapods账号。</p>
+<p>检查是否创建成功的命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  CameraDemo git:(master) pod trunk me</span><br><span class="line">  - Name:     用户名</span><br><span class="line">  - Email:    xxxxxx@qq.com</span><br><span class="line">  - Since:    March 24th, 08:07</span><br><span class="line">  - Pods:     None</span><br><span class="line">  - Sessions:</span><br><span class="line">    - March 24th, 08:07 - July 30th, 08:08. IP: 113.92.152.160</span><br><span class="line">➜  CameraDemo git:(master)</span><br></pre></td></tr></table></figure>
+<h3 id="七、上传代码到CocoaPods"><a href="#七、上传代码到CocoaPods" class="headerlink" title="七、上传代码到CocoaPods"></a>七、上传代码到CocoaPods</h3><p>首先检测文件格式的有效性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">➜  CameraDemo git:(master) ✗ pod spec lint</span><br><span class="line"></span><br><span class="line"> -&gt; WHCamera (0.0.1)</span><br><span class="line">    - NOTE  | xcodebuild:  note: Using new build system</span><br><span class="line">    - NOTE  | [iOS] xcodebuild:  note: Planning build</span><br><span class="line">    - NOTE  | [iOS] xcodebuild:  note: Constructing build description</span><br><span class="line">    - NOTE  | [iOS] xcodebuild:  warning: Skipping code signing because the target does not have an Info.plist file. (in target &apos;App&apos;)</span><br><span class="line"></span><br><span class="line">Analyzed 1 podspec.</span><br><span class="line"></span><br><span class="line">WHCamera.podspec passed validation.</span><br><span class="line"></span><br><span class="line">➜  CameraDemo git:(master) ✗</span><br></pre></td></tr></table></figure>
+<p>警告可以使用<code>--allow-warnings</code>忽略.</p>
+<p>出现<code>passed validation</code>就说明通过验证了。然后执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push WHCamera.podspec --allow-warnings</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push</span><br></pre></td></tr></table></figure>
+<p>成功的结果如下：<br><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/008.jpg" alt></p>
+<p>好像这个地方需要等待很长时间～～～</p>
+<h3 id="八、检查上传是否成功"><a href="#八、检查上传是否成功" class="headerlink" title="八、检查上传是否成功"></a>八、检查上传是否成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search WHCamera</span><br></pre></td></tr></table></figure>
+<p>第一次搜索失败：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[!] Unable to find a pod with name, author, summary, or description matching `WHCamera`</span><br></pre></td></tr></table></figure>
+<p>如果搜索不到，建议删除本地的CocoaPods的搜索目录，执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  rm ~/Library/Caches/CocoaPods/search_index.json</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/03/24/上传Github的代码添加Cocoapods支持/009.jpg" alt></p>
+
       
     </div>
 
@@ -502,15 +501,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/01/27/Mac下使用免费实现内网穿透/" rel="next" title="Mac下使用免费实现内网穿透">
+                <i class="fa fa-chevron-left"></i> Mac下使用免费实现内网穿透
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/07/iOS开发之上线AppStore流程/" rel="prev" title="iOS开发之上线AppStore流程">
-                iOS开发之上线AppStore流程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Node、npm、git环境安装"><span class="nav-number">1.</span> <span class="nav-text">一、Node、npm、git环境安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、Hexo配置"><span class="nav-number">2.</span> <span class="nav-text">二、Hexo配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、新建文件夹MyGithubBlog，即项目名，用于放资源"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、新建文件夹MyGithubBlog，即项目名，用于放资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、进入文件夹中，并进行初始化工作"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、进入文件夹中，并进行初始化工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、基础插件配置"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、基础插件配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、开始本地服务"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、开始本地服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、访问http-localhost-4000，可以出现如下页面"><span class="nav-number">2.0.5.</span> <span class="nav-text">5、访问http://localhost:4000，可以出现如下页面</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#三、使用github-pages"><span class="nav-number">3.</span> <span class="nav-text">三、使用github pages</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、创建github-pages项目"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、创建github pages项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、配置git信息-方便hexo和github通过ssh通信"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、配置git信息(方便hexo和github通过ssh通信)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、配置Deployment"><span class="nav-number">4.</span> <span class="nav-text">四、配置Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、安装-hexo-deployer-git自动部署发布工具"><span class="nav-number">5.</span> <span class="nav-text">五、安装 hexo-deployer-git自动部署发布工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、生成静态文件部署到github"><span class="nav-number">6.</span> <span class="nav-text">六、生成静态文件部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、更改模板，发布博客"><span class="nav-number">7.</span> <span class="nav-text">七、更改模板，发布博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、Hexo中添加本地图片"><span class="nav-number">8.</span> <span class="nav-text">八、Hexo中添加本地图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、为hexo和next增加站内搜索功能"><span class="nav-number">9.</span> <span class="nav-text">九、为hexo和next增加站内搜索功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、安装插件"><span class="nav-number">9.0.1.</span> <span class="nav-text">1、安装插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、修改hexo配置"><span class="nav-number">9.0.2.</span> <span class="nav-text">2、修改hexo配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、配置next中的搜索入口"><span class="nav-number">9.0.3.</span> <span class="nav-text">3、配置next中的搜索入口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、接下来就重新运行就可以看到效果。"><span class="nav-number">9.0.4.</span> <span class="nav-text">4、接下来就重新运行就可以看到效果。</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、上传代码至GitHub"><span class="nav-number">1.</span> <span class="nav-text">一、上传代码至GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、首先我们打开github-com，然后创建自己的项目工程"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、首先我们打开github.com，然后创建自己的项目工程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、点击创建仓库，然后将仓库clone到本地"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、点击创建仓库，然后将仓库clone到本地</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、将工程上传至仓库中"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、将工程上传至仓库中</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#二、创建podspec文件"><span class="nav-number">2.</span> <span class="nav-text">二、创建podspec文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、编辑podspec文件"><span class="nav-number">3.</span> <span class="nav-text">三、编辑podspec文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、验证podspec文件"><span class="nav-number">4.</span> <span class="nav-text">四、验证podspec文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、在Github上创建release版本"><span class="nav-number">5.</span> <span class="nav-text">五、在Github上创建release版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、注册CocoaPods账号"><span class="nav-number">6.</span> <span class="nav-text">六、注册CocoaPods账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、上传代码到CocoaPods"><span class="nav-number">7.</span> <span class="nav-text">七、上传代码到CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、检查上传是否成功"><span class="nav-number">8.</span> <span class="nav-text">八、检查上传是否成功</span></a></li></div>
             
 
           </div>
