@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="一、安装目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步） 推荐一个非常好用的编译FFmpeg脚本. 在终端cd到刚才下载的脚本，执行./build-ffmpeg.sh,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。 等待大概">
+<meta name="keywords" content="iOS,FFmpeg">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS FFmpeg学习资料总结">
 <meta property="og:url" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/index.html">
@@ -121,7 +122,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/016.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/017.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/16/iOS-FFmpeg学习资料总结/018.png">
-<meta property="og:updated_time" content="2019-03-22T01:31:14.000Z">
+<meta property="og:updated_time" content="2019-03-26T14:51:48.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS FFmpeg学习资料总结">
 <meta name="twitter:description" content="一、安装目标：安装ffmpeg-3.4.2（这里根据脚本自动安装的，可能不是目前最新版，需要的请自行更改脚步） 推荐一个非常好用的编译FFmpeg脚本. 在终端cd到刚才下载的脚本，执行./build-ffmpeg.sh,如果你没安装Yasm不用担心，脚本会提示你，你只需要按照提示，脚本会自动帮你下载（这一步网上很多说要自己先安装，反正我是没有，按照脚本提示一步到位），可谓是一键式编译。 等待大概">
@@ -259,6 +260,40 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -355,7 +390,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evans.Xiao">
       <meta itemprop="description" content="iOS、Object-C、OC、iOS逆向开发">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -410,11 +445,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-22 09:31:14" itemprop="dateModified" datetime="2019-03-22T09:31:14+08:00">2019-03-22</time>
+                <time title="修改时间：2019-03-26 22:51:48" itemprop="dateModified" datetime="2019-03-26T22:51:48+08:00">2019-03-26</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -451,7 +504,7 @@
 <p>验证编译结果如下：</p>
 <p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/001.png" alt></p>
 <p>在终端cd到FFmpeg-iOS里面的lib文件:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lipo -info libavfilter.a</span><br><span class="line">Architectures in the fat file: libavfilter.a are: armv7 i386 x86_64 arm64</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lipo -info libavfilter.<span class="keyword">a</span></span><br><span class="line">Architectures <span class="keyword">in</span> <span class="keyword">the</span> fat <span class="built_in">file</span>: libavfilter.<span class="keyword">a</span> are: armv7 i386 x86_64 arm64</span><br></pre></td></tr></table></figure>
 <p>说明：<br><code>armv7</code> <code>arm64</code> <code>i386</code> <code>x86_64</code>这些是什么，其实这些是处理器的指令集。</p>
 <ul>
 <li><code>armv7</code>、<code>arm64</code>是ARM处理器的指令集，真机所支持的架构。目前iOS主要支持<code>arm64</code>.</li>
@@ -464,7 +517,7 @@
 <p>a、设置头文件路径，<code>Header Search Paths</code>-&gt;<code>$(SRCROOT)/FFmpeg-iOS/include</code><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/002.png" alt><br>b、设置库文件路径，<code>Library Search Paths</code>-&gt;<code>$(PROJECT_DIR)/FFmpeg-iOS/lib</code><br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/003.png" alt><br>c、配置缺失的库，主要包括<code>CoreMedia.framework</code>、<code>AudioToolbox.framework</code>、<code>VideoToolbox.framework</code>、<code>libiconv.tbd</code>、<code>libbz2.tbd、libz.tbd</code>。<br><img src="/2018/08/16/iOS-FFmpeg学习资料总结/004.png" alt><br>完成后结果分别如下：</p>
 <p>###3、验证</p>
 <p>在<code>ViewController.m</code>中输入如下代码进行验证：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#include &lt;libavcodec/avcodec.h&gt;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    </span><br><span class="line">    printf(&quot;%s&quot;,avcodec_configuration());</span><br><span class="line">    UILabel *lab = [UILabel new];</span><br><span class="line">    lab.text = [NSString stringWithUTF8String:avcodec_configuration()];</span><br><span class="line">    lab.numberOfLines = 0;</span><br><span class="line">    lab.frame = self.view.bounds;</span><br><span class="line">    [self.view addSubview:lab];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"ViewController.h"</span></span></span><br><span class="line"><span class="meta">#include <span class="meta-string">&lt;libavcodec/avcodec.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    </span><br><span class="line">    printf(<span class="string">"%s"</span>,avcodec_configuration());</span><br><span class="line">    <span class="built_in">UILabel</span> *lab = [<span class="built_in">UILabel</span> new];</span><br><span class="line">    lab.text = [<span class="built_in">NSString</span> stringWithUTF8String:avcodec_configuration()];</span><br><span class="line">    lab.numberOfLines = <span class="number">0</span>;</span><br><span class="line">    lab.frame = <span class="keyword">self</span>.view.bounds;</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:lab];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>启动运行程序，结果如下，说明配置成功。</p>
 <p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/005.png" alt></p>
 <h2 id="三、视频播放器原理"><a href="#三、视频播放器原理" class="headerlink" title="三、视频播放器原理"></a>三、视频播放器原理</h2><p>这里主要参考<a href="https://www.jianshu.com/p/e4ab6fcc7742" target="_blank" rel="noopener">视频播放器原理及相关基础知识介绍</a>。</p>
@@ -475,15 +528,15 @@
 <h4 id="3、H264格式简介以及压缩方法"><a href="#3、H264格式简介以及压缩方法" class="headerlink" title="3、H264格式简介以及压缩方法"></a>3、H264格式简介以及压缩方法</h4><ul>
 <li>I:红色的帧，当作图片直接压缩。特点：</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输;</span><br><span class="line">2.解码时仅用I帧的数据就可重构完整图像;</span><br><span class="line">3.I帧描述了图像背景和运动主体的详情;</span><br><span class="line">4.I帧不需要参考其他画面而生成;</span><br><span class="line">5.I帧是P帧和B帧的参考帧(其质量直接影响到同组中以后各帧的质量);</span><br><span class="line">6.I帧是帧组GOP的基础帧(第一帧),在一组中只有一个I帧;</span><br><span class="line">7.I帧不需要考虑运动矢量;</span><br><span class="line">8.I帧所占数据的信息量比较大。</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>它是一个全帧压缩编码帧。它将全帧图像信息进行JPEG压缩编码及传输;</span><br><span class="line"><span class="number">2.</span>解码时仅用I帧的数据就可重构完整图像;</span><br><span class="line"><span class="number">3.</span>I帧描述了图像背景和运动主体的详情;</span><br><span class="line"><span class="number">4.</span>I帧不需要参考其他画面而生成;</span><br><span class="line"><span class="number">5.</span>I帧是P帧和B帧的参考帧(其质量直接影响到同组中以后各帧的质量);</span><br><span class="line"><span class="number">6.</span>I帧是帧组GOP的基础帧(第一帧),在一组中只有一个I帧;</span><br><span class="line"><span class="number">7.</span>I帧不需要考虑运动矢量;</span><br><span class="line"><span class="number">8.</span>I帧所占数据的信息量比较大。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>P:蓝色的帧。以I帧为参考帧。前向预测编码帧。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.P帧是I帧后面相隔1~2帧的编码帧;</span><br><span class="line">2.P帧采用运动补偿的方法传送它与前面的I或P帧的差值及运动矢量(预测误差);</span><br><span class="line">3.解码时必须将I帧中的预测值与预测误差求和后才能重构完整的P帧图像;</span><br><span class="line">4.P帧属于前向预测的帧间编码。它只参考前面最靠近它的I帧或P帧;</span><br><span class="line">5.P帧可以是其后面P帧的参考帧,也可以是其前后的B帧的参考帧;</span><br><span class="line">6.由于P帧是参考帧,它可能造成解码错误的扩散;</span><br><span class="line">7.由于是差值传送,P帧的压缩比较高。</span><br></pre></td></tr></table></figure>
+<figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.<span class="keyword">P</span>帧是I帧后面相隔<span class="number">1</span>~<span class="number">2</span>帧的编码帧;</span><br><span class="line"><span class="number">2</span>.<span class="keyword">P</span>帧采用运动补偿的方法传送它与前面的I或<span class="keyword">P</span>帧的差值及运动矢量(预测误差);</span><br><span class="line"><span class="number">3</span>.解码时必须将I帧中的预测值与预测误差求和后才能重构完整的<span class="keyword">P</span>帧图像;</span><br><span class="line"><span class="number">4</span>.<span class="keyword">P</span>帧属于前向预测的帧间编码。它只参考前面最靠近它的I帧或<span class="keyword">P</span>帧;</span><br><span class="line"><span class="number">5</span>.<span class="keyword">P</span>帧可以是其后面<span class="keyword">P</span>帧的参考帧,也可以是其前后的B帧的参考帧;</span><br><span class="line"><span class="number">6</span>.由于<span class="keyword">P</span>帧是参考帧,它可能造成解码错误的扩散;</span><br><span class="line"><span class="number">7</span>.由于是差值传送,<span class="keyword">P</span>帧的压缩比较高。</span><br></pre></td></tr></table></figure>
 <ul>
 <li>B:绿色的帧.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.B帧是由前面的I或P帧和后面的P帧来进行预测的;</span><br><span class="line">2.B帧传送的是它与前面的I或P帧和后面的P帧之间的预测误差及运动矢量;</span><br><span class="line">3.B帧是双向预测编码帧;</span><br><span class="line">4.B帧压缩比最高,因为它只反映丙参考帧间运动主体的变化情况,预测比较准确;</span><br><span class="line">5.B帧不是参考帧,不会造成解码错误的扩散。</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1<span class="selector-class">.B</span>帧是由前面的<span class="selector-tag">I</span>或<span class="selector-tag">P</span>帧和后面的<span class="selector-tag">P</span>帧来进行预测的;</span><br><span class="line">2<span class="selector-class">.B</span>帧传送的是它与前面的<span class="selector-tag">I</span>或<span class="selector-tag">P</span>帧和后面的<span class="selector-tag">P</span>帧之间的预测误差及运动矢量;</span><br><span class="line">3<span class="selector-class">.B</span>帧是双向预测编码帧;</span><br><span class="line">4<span class="selector-class">.B</span>帧压缩比最高,因为它只反映丙参考帧间运动主体的变化情况,预测比较准确;</span><br><span class="line">5<span class="selector-class">.B</span>帧不是参考帧,不会造成解码错误的扩散。</span><br></pre></td></tr></table></figure>
 <h2 id="四、音频编码数据"><a href="#四、音频编码数据" class="headerlink" title="四、音频编码数据"></a>四、音频编码数据</h2><h4 id="1、音频编码的作用。"><a href="#1、音频编码的作用。" class="headerlink" title="1、音频编码的作用。"></a>1、音频编码的作用。</h4><p>将音频采集数据压缩成为音频码流，从而降低音频的数据量。</p>
 <h4 id="2、音频格式"><a href="#2、音频格式" class="headerlink" title="2、音频格式"></a>2、音频格式</h4><p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/009.png" alt></p>
 <h4 id="3、ACC格式简介以及简介"><a href="#3、ACC格式简介以及简介" class="headerlink" title="3、ACC格式简介以及简介"></a>3、ACC格式简介以及简介</h4><p>数据由大小不固定的ADTS构成.压缩方法复杂，可以将音频数据压缩10倍以上.</p>
@@ -493,7 +546,7 @@
 <p>RGB24、RGB32、YUV420P、YUV422P、YUV444P。常用的为YUV420P。</p>
 <p>3、特点</p>
 <p>体积很大。一般情况1小时高清视频的RGB24格式的数据体积为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3600*25*1920*1080*3=559GByte</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3600</span>*<span class="number">25</span>*<span class="number">1920</span>*<span class="number">1080</span>*<span class="number">3</span>=<span class="number">559</span>GByte</span><br></pre></td></tr></table></figure>
 <p>PS:这里帧率为25Hz，取样精度8bit.</p>
 <p>4、RGB格式简介</p>
 <p><img src="/2018/08/16/iOS-FFmpeg学习资料总结/010.png" alt></p>
@@ -502,7 +555,7 @@
 <p>保存了音频中每个采样点的值。</p>
 <p>2、特点</p>
 <p>体积很大。一般情况一首4分钟的PCM格式的歌曲体积为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4*60*44100*2*2=42.3MByte</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>*<span class="number">60</span>*<span class="number">44100</span>*<span class="number">2</span>*<span class="number">2</span>=<span class="number">42.3</span>MByte</span><br></pre></td></tr></table></figure>
 <p>PS:假定采样率为44100Hz，采样精度为16bit.</p>
 <h2 id="七、视频解码知识"><a href="#七、视频解码知识" class="headerlink" title="七、视频解码知识"></a>七、视频解码知识</h2><p>1、纯净的视频解码流程</p>
 <ul>
@@ -541,6 +594,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/FFmpeg/" rel="tag"># FFmpeg</a>
+          
+        </div>
+      
 
       
       
@@ -560,8 +621,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/27/Mac下使用免费实现内网穿透/" rel="prev" title="Mac下使用免费实现内网穿透">
-                Mac下使用免费实现内网穿透 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/26/iOS开发之基本算法/" rel="prev" title="iOS开发之基本算法">
+                iOS开发之基本算法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -620,6 +681,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4" alt="Evans.Xiao">
+            
               <p class="site-author-name" itemprop="name">Evans.Xiao</p>
               <div class="site-description motion-element" itemprop="description">iOS、Object-C、OC、iOS逆向开发</div>
           </div>
@@ -631,14 +694,80 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
             </nav>
           

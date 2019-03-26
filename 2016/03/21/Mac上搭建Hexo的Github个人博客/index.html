@@ -97,6 +97,7 @@
 
 
   <meta name="description" content="作为一个NB的程序员，必须要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。 一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作： 12➜  ~ node -vv10.8.0 12➜  ~ npm -">
+<meta name="keywords" content="Github,Mac,Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac上搭建Hexo的Github个人博客">
 <meta property="og:url" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/index.html">
@@ -106,7 +107,7 @@
 <meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/001.jpg">
 <meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/002.jpg">
 <meta property="og:image" content="http://yoursite.com/2016/03/21/Mac上搭建Hexo的Github个人博客/003.jpg">
-<meta property="og:updated_time" content="2019-03-25T14:13:04.203Z">
+<meta property="og:updated_time" content="2019-03-26T14:55:42.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上搭建Hexo的Github个人博客">
 <meta name="twitter:description" content="作为一个NB的程序员，必须要有一个属于自己的blog。市面上大多数人常有的blog网站有CSDN、掘金、我是开发者、oschina、cocoachina、简书。 一、Node、npm、git环境安装因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作： 12➜  ~ node -vv10.8.0 12➜  ~ npm -">
@@ -244,6 +245,40 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -340,7 +375,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Evans.Xiao">
       <meta itemprop="description" content="iOS、Object-C、OC、iOS逆向开发">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -395,11 +430,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-25 22:13:04" itemprop="dateModified" datetime="2019-03-25T22:13:04+08:00">2019-03-25</time>
+                <time title="修改时间：2019-03-26 22:55:42" itemprop="dateModified" datetime="2019-03-26T22:55:42+08:00">2019-03-26</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -431,31 +484,31 @@
       
         <p>作为一个NB的程序员，必须要有一个属于自己的blog。<br>市面上大多数人常有的blog网站有<a href="https://bbs.csdn.net/forums/ios" target="_blank" rel="noopener"><code>CSDN</code></a>、<a href="https://juejin.im/welcome/ios" target="_blank" rel="noopener"><code>掘金</code></a>、<a href="https://juejin.im/welcome/ios" target="_blank" rel="noopener"><code>我是开发者</code></a>、<a href="https://www.oschina.net/ios/codingList" target="_blank" rel="noopener"><code>oschina</code></a>、<a href="http://www.cocoachina.com/" target="_blank" rel="noopener"><code>cocoachina</code></a>、<a href="https://www.jianshu.com/" target="_blank" rel="noopener"><code>简书</code></a>。</p>
 <h3 id="一、Node、npm、git环境安装"><a href="#一、Node、npm、git环境安装" class="headerlink" title="一、Node、npm、git环境安装"></a>一、Node、npm、git环境安装</h3><p>因为大多数程序员Mac电脑都支持或已经具备基本。本教程不做Nodejs、git环境的安装，如未安装，请自行百度。仅做简单的验证操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ node -v</span><br><span class="line">v10.8.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ npm -v</span><br><span class="line">6.2.0</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git --version</span><br><span class="line">git version 2.17.2 (Apple Git-113)</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ <span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">v10.<span class="number">8.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ <span class="selector-tag">npm</span> <span class="selector-tag">-v</span></span><br><span class="line">6<span class="selector-class">.2</span><span class="selector-class">.0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ git --version</span><br><span class="line">git version <span class="number">2.17</span><span class="number">.2</span> (Apple Git<span class="number">-113</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="二、Hexo配置"><a href="#二、Hexo配置" class="headerlink" title="二、Hexo配置"></a>二、Hexo配置</h3><p>关于Hexo：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a></p>
 <p>安装部署命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>hexo-cli -g</span><br><span class="line">hexo init <span class="keyword">blog</span></span><br><span class="line"><span class="keyword">cd </span><span class="keyword">blog</span></span><br><span class="line"><span class="keyword">npm </span><span class="keyword">install</span></span><br><span class="line"><span class="keyword">hexo </span>server</span><br></pre></td></tr></table></figure>
 <p>安装完成后如何新建Blog？</p>
-<h5 id="1、新建文件夹MyGithubBlog，即项目名，用于放资源"><a href="#1、新建文件夹MyGithubBlog，即项目名，用于放资源" class="headerlink" title="1、新建文件夹MyGithubBlog，即项目名，用于放资源"></a>1、新建文件夹<code>MyGithubBlog</code>，即项目名，用于放资源</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyProject git:(master) ✗ mkdir MyGithubBlog</span><br></pre></td></tr></table></figure>
-<h5 id="2、进入文件夹中，并进行初始化工作"><a href="#2、进入文件夹中，并进行初始化工作" class="headerlink" title="2、进入文件夹中，并进行初始化工作"></a>2、进入文件夹中，并进行初始化工作</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  MyProject git:(master) ✗ cd MyGithubBlog </span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo init</span><br></pre></td></tr></table></figure>
+<h5 id="1、新建文件夹MyGithubBlog，即项目名，用于放资源"><a href="#1、新建文件夹MyGithubBlog，即项目名，用于放资源" class="headerlink" title="1、新建文件夹MyGithubBlog，即项目名，用于放资源"></a>1、新建文件夹<code>MyGithubBlog</code>，即项目名，用于放资源</h5><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyProject gi<span class="variable">t:</span>(master) ✗ <span class="built_in">mkdir</span> MyGithubBlog</span><br></pre></td></tr></table></figure>
+<h5 id="2、进入文件夹中，并进行初始化工作"><a href="#2、进入文件夹中，并进行初始化工作" class="headerlink" title="2、进入文件夹中，并进行初始化工作"></a>2、进入文件夹中，并进行初始化工作</h5><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  MyProject gi<span class="variable">t:</span>(master) ✗ <span class="keyword">cd</span> MyGithubBlog </span><br><span class="line">➜  MyGithubBlog gi<span class="variable">t:</span>(master) ✗ hexo init</span><br></pre></td></tr></table></figure>
 <p>进度如下：<br><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/001.jpg" alt></p>
-<h5 id="3、基础插件配置"><a href="#3、基础插件配置" class="headerlink" title="3、基础插件配置"></a>3、基础插件配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">✗ hexo install</span><br></pre></td></tr></table></figure>
-<h5 id="4、开始本地服务"><a href="#4、开始本地服务" class="headerlink" title="4、开始本地服务"></a>4、开始本地服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g      </span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded in 134 ms</span><br><span class="line">INFO  Generated: index.html</span><br><span class="line">INFO  Generated: archives/index.html</span><br><span class="line">INFO  Generated: 2019/03/21/hello-world/index.html</span><br><span class="line">INFO  Generated: archives/2019/index.html</span><br><span class="line">INFO  Generated: archives/2019/03/index.html</span><br><span class="line">INFO  5 files generated in 195 ms</span><br><span class="line">➜  MyGithubBlog git:(master) ✗ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<h5 id="3、基础插件配置"><a href="#3、基础插件配置" class="headerlink" title="3、基础插件配置"></a>3、基础插件配置</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">✗ hexo <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<h5 id="4、开始本地服务"><a href="#4、开始本地服务" class="headerlink" title="4、开始本地服务"></a>4、开始本地服务</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog <span class="string">git:</span>(master) ✗ hexo g      </span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Files loaded <span class="keyword">in</span> <span class="number">134</span> ms</span><br><span class="line">INFO  <span class="string">Generated:</span> index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives/index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> <span class="number">2019</span><span class="regexp">/03/</span><span class="number">21</span><span class="regexp">/hello-world/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives<span class="regexp">/2019/</span>index.html</span><br><span class="line">INFO  <span class="string">Generated:</span> archives<span class="regexp">/2019/</span><span class="number">03</span>/index.html</span><br><span class="line">INFO  <span class="number">5</span> files generated <span class="keyword">in</span> <span class="number">195</span> ms</span><br><span class="line">➜  MyGithubBlog <span class="string">git:</span>(master) ✗ hexo s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at <span class="string">http:</span><span class="comment">//localhost:4000 . Press Ctrl+C to stop.</span></span><br></pre></td></tr></table></figure>
 <h5 id="5、访问http-localhost-4000，可以出现如下页面"><a href="#5、访问http-localhost-4000，可以出现如下页面" class="headerlink" title="5、访问http://localhost:4000，可以出现如下页面"></a>5、访问<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，可以出现如下页面</h5><p><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/002.jpg" alt></p>
 <h3 id="三、使用github-pages"><a href="#三、使用github-pages" class="headerlink" title="三、使用github pages"></a>三、使用github pages</h3><p>github pages是给开发者建立一个私人页面，免费且没有空间流量限制。每个github账号都可以创建一个github pages项目。</p>
 <h5 id="1、创建github-pages项目"><a href="#1、创建github-pages项目" class="headerlink" title="1、创建github pages项目"></a>1、创建github pages项目</h5><p>在github上新建一个项目，项目的名称必须是（你的用户名.github.io)才行</p>
 <p><img src="/2016/03/21/Mac上搭建Hexo的Github个人博客/003.jpg" alt></p>
 <h5 id="2、配置git信息-方便hexo和github通过ssh通信"><a href="#2、配置git信息-方便hexo和github通过ssh通信" class="headerlink" title="2、配置git信息(方便hexo和github通过ssh通信)"></a>2、配置git信息(方便hexo和github通过ssh通信)</h5><p>如何配置，公司使用过gitlab或常用Coding的童鞋应该知道，不再废话，属于基本操作。</p>
 <h3 id="四、配置Deployment"><a href="#四、配置Deployment" class="headerlink" title="四、配置Deployment"></a>四、配置Deployment</h3><p>在MyGithubBlog项目根目录下里找到_config.yml文件，找到Deployment，然后按照如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git </span><br><span class="line">  repo: git@github.com:1019459067/1019459067.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h3 id="五、安装-hexo-deployer-git自动部署发布工具"><a href="#五、安装-hexo-deployer-git自动部署发布工具" class="headerlink" title="五、安装 hexo-deployer-git自动部署发布工具"></a>五、安装 hexo-deployer-git自动部署发布工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm audit fix</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https:<span class="comment">//hexo.io/docs/deployment.html</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git </span><br><span class="line"><span class="symbol">  repo:</span> git@github.com:<span class="number">1019459067</span>/<span class="number">1019459067.</span>github.io.git</span><br><span class="line"><span class="symbol">  branch:</span> master</span><br></pre></td></tr></table></figure>
+<h3 id="五、安装-hexo-deployer-git自动部署发布工具"><a href="#五、安装-hexo-deployer-git自动部署发布工具" class="headerlink" title="五、安装 hexo-deployer-git自动部署发布工具"></a>五、安装 hexo-deployer-git自动部署发布工具</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> audit fix</span><br></pre></td></tr></table></figure>
 <h3 id="六、生成静态文件部署到github"><a href="#六、生成静态文件部署到github" class="headerlink" title="六、生成静态文件部署到github"></a>六、生成静态文件部署到github</h3><p>通过命令hexo clean &amp;&amp; hexo g &amp;&amp; hexo d，发布到github</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo clean</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo g</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(master) ✗ hexo d</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(<span class="literal">master</span>) ✗ hexo clean</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(<span class="literal">master</span>) ✗ hexo g</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜  MyGithubBlog git:(<span class="literal">master</span>) ✗ hexo d</span><br></pre></td></tr></table></figure>
 <p>通过链接就可以进行访问：<a href="https://1019459067.github.io/" target="_blank" rel="noopener">https://1019459067.github.io</a></p>
 <h3 id="七、更改模板，发布博客"><a href="#七、更改模板，发布博客" class="headerlink" title="七、更改模板，发布博客"></a>七、更改模板，发布博客</h3><p><a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">next主题</a></p>
 <p><a href="https://hexo.io/zh-cn/docs/writing" target="_blank" rel="noopener">hexo写作教程</a></p>
@@ -463,16 +516,16 @@
 <p>2、在你的hexo目录下执行这样一句话<code>npm install hexo-asset-image --save</code>，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git</p>
 <p>3、等待一小段时间后，再运行<code>hexo n &quot;xxxx&quot;</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了xxxx.md文件还有一个同名的文件夹</p>
 <p>4、最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">你想输入的替代文字</span>](<span class="link">xxxx/图片名.jpg</span>)</span><br></pre></td></tr></table></figure>
 <p>注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。</p>
 <p>5、最后检查一下，<code>hexo g</code>生成页面后，进入<code>public\2019\03\21\index.html</code>文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>。这很重要，关乎你的网页是否可以真正加载你想插入的图片。</p>
-<h3 id="九、为hexo和next增加站内搜索功能"><a href="#九、为hexo和next增加站内搜索功能" class="headerlink" title="九、为hexo和next增加站内搜索功能"></a>九、为hexo和next增加站内搜索功能</h3><h5 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search</span><br><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+<h3 id="九、为hexo和next增加站内搜索功能"><a href="#九、为hexo和next增加站内搜索功能" class="headerlink" title="九、为hexo和next增加站内搜索功能"></a>九、为hexo和next增加站内搜索功能</h3><h5 id="1、安装插件"><a href="#1、安装插件" class="headerlink" title="1、安装插件"></a>1、安装插件</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-<span class="keyword">search</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
 <h5 id="2、修改hexo配置"><a href="#2、修改hexo配置" class="headerlink" title="2、修改hexo配置"></a>2、修改hexo配置</h5><p>在你的hexo目录下的_config.yml中增加如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">search:</span></span><br><span class="line"><span class="symbol">  path:</span> search.xml</span><br><span class="line"><span class="symbol">  field:</span> post</span><br><span class="line"><span class="symbol">  format:</span> html</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 <p>配置上之后，其实搜索已经配置完成了，但现在我们还看不到搜索的入口，接下来我们需要在next的主体上进行配置</p>
 <h5 id="3、配置next中的搜索入口"><a href="#3、配置next中的搜索入口" class="headerlink" title="3、配置next中的搜索入口"></a>3、配置next中的搜索入口</h5><p>打开themes\next_config.yml，打开local search:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
-<h5 id="4、接下来就重新运行就可以看到效果。"><a href="#4、接下来就重新运行就可以看到效果。" class="headerlink" title="4、接下来就重新运行就可以看到效果。"></a>4、接下来就重新运行就可以看到效果。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">Local</span> <span class="keyword">search</span></span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # <span class="keyword">if</span> auto, trigger <span class="keyword">search</span> <span class="keyword">by</span> changing <span class="keyword">input</span></span><br><span class="line">  # <span class="keyword">if</span> manual, trigger <span class="keyword">search</span> <span class="keyword">by</span> pressing enter key or <span class="keyword">search</span> button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top <span class="keyword">n</span> results per article, show all results <span class="keyword">by</span> setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br></pre></td></tr></table></figure>
+<h5 id="4、接下来就重新运行就可以看到效果。"><a href="#4、接下来就重新运行就可以看到效果。" class="headerlink" title="4、接下来就重新运行就可以看到效果。"></a>4、接下来就重新运行就可以看到效果。</h5><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo s</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -492,6 +545,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
       
 
       
@@ -568,6 +631,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4" alt="Evans.Xiao">
+            
               <p class="site-author-name" itemprop="name">Evans.Xiao</p>
               <div class="site-description motion-element" itemprop="description">iOS、Object-C、OC、iOS逆向开发</div>
           </div>
@@ -579,14 +644,80 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
             </nav>
           
