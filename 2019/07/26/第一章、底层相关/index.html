@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、谈谈OC的反射弧机制程序可以访问、检测和修改它本身状态或行为的一种能力。OC的反射机制，即在动态运行状态下可以构造任意一个类或对象，知道这个类的所有属性和方法。 二、探索分析App启动时间优化问题启动慢问题分析：通过代码工程的设置Product-&amp;gt;Scheme-&amp;gt;Edit Scheme-&amp;gt;Run-&amp;gt;Environment Variables 设置：key:DYLD_PR">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章、底层相关">
+<meta property="og:url" content="http://yoursite.com/2019/07/26/第一章、底层相关/index.html">
+<meta property="og:site_name" content="Weihua&#39;s Blog">
+<meta property="og:description" content="一、谈谈OC的反射弧机制程序可以访问、检测和修改它本身状态或行为的一种能力。OC的反射机制，即在动态运行状态下可以构造任意一个类或对象，知道这个类的所有属性和方法。 二、探索分析App启动时间优化问题启动慢问题分析：通过代码工程的设置Product-&amp;gt;Scheme-&amp;gt;Edit Scheme-&amp;gt;Run-&amp;gt;Environment Variables 设置：key:DYLD_PR">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-09T14:50:55.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一章、底层相关">
+<meta name="twitter:description" content="一、谈谈OC的反射弧机制程序可以访问、检测和修改它本身状态或行为的一种能力。OC的反射机制，即在动态运行状态下可以构造任意一个类或对象，知道这个类的所有属性和方法。 二、探索分析App启动时间优化问题启动慢问题分析：通过代码工程的设置Product-&amp;gt;Scheme-&amp;gt;Edit Scheme-&amp;gt;Run-&amp;gt;Environment Variables 设置：key:DYLD_PR">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/26/第一章、底层相关/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>第一章、底层相关 | Weihua's Blog</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?60c97a4ba525002fef00e6468f38b589";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Weihua's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">值得期待的只有诗与远方。</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">15</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">5</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">28</span></a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/26/第一章、底层相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Evans.Xiao">
+      <meta itemprop="description" content="做一件值得专注的事，读一本值得品味的书，过得一个趣味人生">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weihua's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">第一章、底层相关
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-26 08:29:24" itemprop="dateCreated datePublished" datetime="2019-07-26T08:29:24+08:00">2019-07-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-09 22:50:55" itemprop="dateModified" datetime="2019-08-09T22:50:55+08:00">2019-08-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/面试/" itemprop="url" rel="index"><span itemprop="name">面试</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、谈谈OC的反射弧机制"><a href="#一、谈谈OC的反射弧机制" class="headerlink" title="一、谈谈OC的反射弧机制"></a>一、谈谈OC的反射弧机制</h2><p>程序可以访问、检测和修改它本身状态或行为的一种能力。OC的反射机制，即在动态运行状态下可以构造任意一个类或对象，知道这个类的所有属性和方法。</p>
+<h2 id="二、探索分析App启动时间优化问题"><a href="#二、探索分析App启动时间优化问题" class="headerlink" title="二、探索分析App启动时间优化问题"></a>二、探索分析App启动时间优化问题</h2><p>启动慢问题分析：<br>通过代码工程的设置<code>Product-&gt;Scheme-&gt;Edit Scheme-&gt;Run-&gt;Environment Variables</code> 设置：<code>key:DYLD_PRINT_STATISTICS value:1</code></p>
+<p>时间分为两个部分：<br>main-pre：系统环境布局时间，创建进程，加载解析可执行文件(库加载，堆栈环境配置等等)<br>main：<code>从main</code>函数到第一个界面显示时间</p>
+<p>启动慢的影响的主要因素：<br>1、库加载越多，启动越慢<br>2、<code>Objc</code>类越多，越慢<br>3、静态对象全局对象越多，启动越慢<br>4、<code>Objc</code>的<code>+load</code>越多，启动越慢</p>
+<p>解决方法：<br>1、尽量避免过多使用<code>+load</code>方法，可以使用<code>+initlalize</code>替代。<br>在系统第一次使用到这个类的使用，才会使用到他的<code>+(void)initlalize</code>方法。<br>2、减少<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</code>里面的操作，在启动页出现后再进行相关操作。<br>例如放到子线程中去执行</p>
+<h2 id="三、点击-Run-之后发生了什么？"><a href="#三、点击-Run-之后发生了什么？" class="headerlink" title="三、点击 Run 之后发生了什么？"></a>三、点击 Run 之后发生了什么？</h2><p>简单来说，点击Run之后App进行编译、汇编、链接、代码签名以及启动执行等操作。</p>
+<p>因为某些操作流程及其原理中在其它总结中做了相关的介绍说明。这里主要介绍代码签名以及启动执行。</p>
+<ul>
+<li>代码签名</li>
+</ul>
+<p>每次<code>build</code>之后，都会发现工程目录下多了一个<code>.app</code>文件。在<code>.app</code>目录中，有又一个叫<code>_CodeSignature</code>的子目录，这是一个plist文件，里面包含了程序的代码签名，你的程序一旦签名，就没有办法更改其中的任何东西，包括资源文件，可执行文件等，iOS系统会检查这个签名。<br>签名过程本身是由命令行工具<code>codesign</code>来完成的。如果你在Xcode中<code>build</code>一个应用，这个应用构建完成之后会自动调用<code>codesign</code>命令进行签名，这也是<code>link</code>之后的一个关键步骤。</p>
+<ul>
+<li>启动</li>
+</ul>
+<p>其实在启动过程中，<code>dyld</code>（动态链接器）起了很重要的作用，进行动态链接，进行符号和地址的一个绑定。</p>
+<p><code>dyld</code>主要在启动过程中主要做了以下事情：<br>1、加载所依赖的<code>dylibs</code><br>2、Fix-ups：Rebase修正地址偏移，因为OSX和iOS搞了一个叫<code>ASLR</code>的东西来做地址偏移（随机化）来避免收到攻击<br>3、Fix-ups：Binding确定<code>Non-LazyPointer</code>地址，进行符号地址绑定。<br>4、ObjCruntime初始化：加载所有类<br>5、Initializers：执行<code>load方法</code>和<code>__attribute__((constructor))</code>修饰的函数</p>
+<h2 id="四、请简述OC的编译过程。"><a href="#四、请简述OC的编译过程。" class="headerlink" title="四、请简述OC的编译过程。"></a>四、请简述OC的编译过程。</h2><p>高级编程语言想要成为可执行文件需要先编译为汇编语言再汇编为机器语言，机器语言也是计算机能够识别的唯一语言，但是OC并不能直接编译为汇编语言，而是要先转写为纯C语言再进行编译和汇编的操作，从OC到C语言的过渡就是由<code>runtime</code>来实现的。然而我们使用OC进行面向对象开发，而C语言更多的是面向过程开发，这就需要将面向对象的类转变为面向过程的结构体。</p>
+<p>更多详情的过程：<br>iOS编译采用<code>Clang</code>作为编译器前端，<code>LLVM</code>作为编译器后端，编译器前端负责语法分析、语义分析，生成中间码<code>(LLVMIR)</code>，在这个过程中，会进行类型检查，如果发现错误或者警告会标注出来在哪一行；编译器后端会进行机器无关的代码优化，生成机器语言，并且进行机器相关的代码优化。</p>
+<ul>
+<li><code>Clang</code>的编译过程</li>
+</ul>
+<p>预处理<br>预处理器会处理源文件中的宏定义，将代码中的宏用其对应定义的具体内容进行替换，删除注释，展开头文件，产生<code>.i</code>文件。</p>
+<p>词法分析<br>预处理完成了以后，开始词法分析，这里会把代码切成一个个Token，比如大小括号、等于号，还有字符串等。</p>
+<p>语法分析<br>语法分析，在<code>Clang</code>中由<code>Parser</code>和<code>Sema</code>两个模块配合完成，验证语法是否正确，根据当前语言的语法，生成语意节点，并将所有节点组合成抽象语法树<code>AST</code>。</p>
+<p>静态分析<br>一旦编译器把源码生成了抽象语法树，编译器可以对这棵树做分析处理，以找出代码中的错误，比如类型检查：即检查程序中是否有类型错误。例如：如果代码中给某个对象发送了一个消息，编译器会检查这个对象是否实现了这个消息（函数、方法）。此外，<code>Clang</code>对整个程序还做了其它更高级的一些分析，以确保程序没有错误。</p>
+<p>类型检查<br>一般会把类型检查分为两类：动态的和静态的。动态的在运行时做检查，静态的在编译时做检查。以往，编写代码时可以向任意对象发送任何消息，在运行时，才会检查对象是否能够响应这些消息。由于只是在运行时做此类检查，所以叫做动态类型。</p>
+<p>至于静态类型，是在编译时做检查。当在代码中使用<code>ARC</code>时，编译器在编译期间，会做许多的类型检查：因为编译器需要知道哪个对象该如何使用。</p>
+<ul>
+<li><code>LLVM</code>的编译过程</li>
+</ul>
+<p>目标代码的生成与优化<br>CodeGen负责将语法树<code>AST</code>丛顶至下遍历，翻译成<code>LLVMIR</code>中间码，<code>LLVMIR</code>中间码编译过程的前端的输出后端的输入。<br>编译器后端主要包括代码生成器、代码优化器。代码生成器将中间代码转换为目标代码，代码优化器主要是进行一些优化，比如删除多余指令，选择合适寻址方式等，如果开启了<code>Bitcode</code>苹果会做进一步的优化，有新的后端架构还是可以用这份优化过的<code>Bitcode</code>去生成。优化中间代码生成输出汇编代码，把之前的<code>.i</code>文件转换为汇编语言，产生<code>.s</code>文件</p>
+<p>汇编<br>目标代码需要经过汇编器处理，把汇编语言文件转换为机器码文件，产生<code>.o</code>文件。</p>
+<p>链接<br>链接又分为静态链接和动态链接。对<code>.o</code>文件中的对于其他的库的引用的地方进行引用，生成最后的可执行文件(同时也包括多个<code>.o</code>文件进行link)。</p>
+<p>静态链接<br>在编译链接期间发挥作用，把目标文件和静态库一起链接形成可执行文件。</p>
+<p>动态链接<br>链接过程推迟到运行时再进行。如果多个程序都用到了一个库，那么每个程序都要将其链接到可执行文件中，非常冗余，动态链接的话，多个程序可以共享同一段代码，不需要在磁盘上存多份拷贝，但是动态链接发生在启动或运行时，增加了启动时间，造成一些性能的影响。</p>
+<p>静态库不方便升级，必须重新编译，动态库的升级更加方便。</p>
+<h2 id="五、深入理解iOS开发中的Bitcode功能"><a href="#五、深入理解iOS开发中的Bitcode功能" class="headerlink" title="五、深入理解iOS开发中的Bitcode功能"></a>五、深入理解iOS开发中的Bitcode功能</h2><p><code>LLVM</code>是目前苹果采用的编译器工具链，<code>Bitcode</code>是<code>LLVM</code>编译器的中间代码的一种编码，<code>LLVM</code>的前端可以理解为<code>C/C++/OC/Swift</code>等编程语言，<code>LLVM</code>的后端可以理解为各个芯片平台上的汇编指令或者可执行机器指令数据，那么，<code>Bitcode</code>就是位于这两者直接的中间码。<code>LLVM</code>的编译工作原理是前端负责把项目程序源代码翻译成<code>Bitcode</code>中间码，然后再根据不同目标机器芯片平台转换为相应的汇编指令以及翻译为机器码。</p>
+<p>这样设计就可以让<code>LLVM</code>成为了一个编译器架构，可以轻而易举的在<code>LLVM</code>架构之上发明新的语言(前端)，以及在<code>LLVM</code>架构下面支持新的CPU(后端)指令输出，虽然<code>Bitcode</code>仅仅只是一个中间码不能在任何平台上运行，但是它可以转化为任何被支持的CPU架构，包括现在还没被发明的CPU架构，也就是说现在打开<code>Bitcode</code>功能提交一个App到应用商店，以后如果苹果新出了一款手机并CPU也是全新设计的，在苹果后台服务器一样可以从这个App的<code>Bitcode</code>开始编译转化为新CPU上的可执行程序，可供新手机用户下载运行这个App。</p>
+<p> 更多详情参考<a href="https://www.cnblogs.com/shaoting/p/6650897.html" target="_blank" rel="noopener">深入理解iOS开发中的Bitcode功能</a></p>
+<h2 id="六、探寻OC对象的本质"><a href="#六、探寻OC对象的本质" class="headerlink" title="六、探寻OC对象的本质"></a>六、探寻OC对象的本质</h2><p>OC的对象结构都是通过基础<code>C\C++</code>的结构体实现的。我们通过创建OC文件及对象，并将OC文件转化为<code>C++</code>文件来探寻OC对象的本质。</p>
+<p>转化为C语言其实就是一个结构体</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NSObject_IMPL</span> </span>&#123;</span><br><span class="line">    Class isa;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>那么这个结构体占多大的内存空间呢，我们发现这个结构体只有一个成员，isa指针，而指针在64位架构中占8个字节。也就是说一个NSObjec对象所占用的内存是8个字节。但是我们发现<code>NSObject</code>对象中还有很多方法，那这些方法不占用内存空间吗？其实类的方法等也占用内存空间，但是这些方法所占用的存储空间并不在<code>NSObject</code>对象中。</p>
+<p>为了探寻OC对象在内存中如何体现，我们来看下面一段代码</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSObject *objc = <span class="comment">[<span class="comment">[NSObject alloc]</span> init]</span>;</span><br></pre></td></tr></table></figure>
+<p>上面一段代码在内存中如何体现的呢？上述一段代码中系统为<code>NSObject</code>对象分配8个字节的内存空间，用来存放一个成员isa指针。那么isa指针这个变量的地址就是结构体的地址，也就是<code>NSObject</code>对象的地址。<br>假设isa的地址为<code>0x100400110</code>，那么上述代码分配存储空间给<code>NSObject</code>对象，然后将存储空间的地址赋值给objc指针。objc存储的就是isa的地址。objc指向内存中<code>NSObject</code>对象地址，即指向内存中的结构体，也就是isa的位置。</p>
+<h2 id="七、探寻Class的本质"><a href="#七、探寻Class的本质" class="headerlink" title="七、探寻Class的本质"></a>七、探寻Class的本质</h2><p>我们知道不管是类对象还是元类对象，类型都是<code>Class</code>，<code>class</code>和<code>mete-class</code>的底层都是<code>objc_class</code>结构体的指针，内存中就是结构体。</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Class</span> objectClass = [NSObject <span class="keyword">class</span>]<span class="comment">;        </span></span><br><span class="line"><span class="keyword">Class</span> objectMetaClass = object_getClass([NSObject <span class="keyword">class</span>])<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>点击Class来到内部，我们可以发现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">objc_class</span> *<span class="title">Class</span>;</span></span><br></pre></td></tr></table></figure>
+<p>Class对象其实是一个指向<code>objc_class</code>结构体的指针。因此我们可以说类对象或元类对象在内存中其实就是<code>objc_class</code>结构体。</p>
+<p>我们来到<code>objc_class</code>内部，但是<code>OBJC2_UNAVAILABLE;</code>说明这些代码已经不在使用了。那么目前<code>objc_class</code>的结构是什么样的呢？通过objc源码中去查找<code>objc_class</code>结构体的内容。</p>
+<p>发现这个结构体继承<code>objc_object</code>并且结构体内有一些函数，因为这是<code>c++</code>结构体，在c上做了扩展，因此结构体中可以包含函数。发现<code>objc_object</code>中有一个isa指针，那么<code>objc_class</code>继承<code>objc_object</code>，也就同样拥有一个isa指针。</p>
+<p>简单点说，通过Runtime等源码知道，<code>class-&gt;objc_class-&gt;objc_object</code>。</p>
+<p>更多详情请参考<a href="https://juejin.im/post/5ad210636fb9a028da7cf90c" target="_blank" rel="noopener">iOS底层原理总结 - 探寻Class的本质</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/25/iOS自定义服务器下载安装ipa流程/" rel="next" title="iOS自定义服务器下载安装ipa流程">
+                <i class="fa fa-chevron-left"></i> iOS自定义服务器下载安装ipa流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/26/第二章、UI视图相关/" rel="prev" title="第二章、UI视图相关">
+                第二章、UI视图相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars0.githubusercontent.com/u/10302008?s=460&v=4" alt="Evans.Xiao">
+            
+              <p class="site-author-name" itemprop="name">Evans.Xiao</p>
+              <div class="site-description motion-element" itemprop="description">做一件值得专注的事，读一本值得品味的书，过得一个趣味人生</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、谈谈OC的反射弧机制"><span class="nav-number">1.</span> <span class="nav-text">一、谈谈OC的反射弧机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、探索分析App启动时间优化问题"><span class="nav-number">2.</span> <span class="nav-text">二、探索分析App启动时间优化问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、点击-Run-之后发生了什么？"><span class="nav-number">3.</span> <span class="nav-text">三、点击 Run 之后发生了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、请简述OC的编译过程。"><span class="nav-number">4.</span> <span class="nav-text">四、请简述OC的编译过程。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、深入理解iOS开发中的Bitcode功能"><span class="nav-number">5.</span> <span class="nav-text">五、深入理解iOS开发中的Bitcode功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、探寻OC对象的本质"><span class="nav-number">6.</span> <span class="nav-text">六、探寻OC对象的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、探寻Class的本质"><span class="nav-number">7.</span> <span class="nav-text">七、探寻Class的本质</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weihua Xiao</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
